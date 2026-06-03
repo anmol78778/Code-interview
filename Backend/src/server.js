@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors({ origin: ENV.CLIENT_URL ,credentials: true }));
 
 
-// app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use('/',()=>console.log("Hello from the server!"))
 
 
 app.get('/health',(req,res)=>{
