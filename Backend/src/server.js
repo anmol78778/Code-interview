@@ -11,7 +11,7 @@ console.log(ENV.PORT)
 app.use(express.json());
 app.use(cors({ origin: ENV.CLIENT_URL ,credentials: true }));
 
-
+app.use('/',()=>{console.log('API is working')})
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
 
