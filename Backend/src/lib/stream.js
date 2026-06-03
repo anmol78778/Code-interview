@@ -12,14 +12,17 @@ if (!apiKey || !apiSecret) {
 export const chatClient = StreamChat.getInstance(apiKey, apiSecret); // will be used chat features
 export const streamClient = new StreamClient(apiKey, apiSecret); // will be used for video calls
 
+console.log("Before Stream");
 export const upsertStreamUser = async (userData) => {
   try {
     await chatClient.upsertUser(userData);
     console.log("Stream user upserted successfully:", userData);
   } catch (error) {
     console.error("Error upserting Stream user:", error);
+    throw error;
   }
 };
+console.log("After Stream");
 
 export const deleteStreamUser = async (userId) => {
   try {
@@ -27,5 +30,7 @@ export const deleteStreamUser = async (userId) => {
     console.log("Stream user deleted successfully:", userId);
   } catch (error) {
     console.error("Error deleting the Stream user:", error);
+    throw error;
   }
+
 };

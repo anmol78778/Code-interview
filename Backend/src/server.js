@@ -11,6 +11,9 @@ console.log(ENV.PORT)
 app.use(express.json());
 app.use(cors({ origin: ENV.CLIENT_URL ,credentials: true }));
 
+console.log(process.env.STREAM_API_KEY);
+console.log(process.env.STREAM_API_SECRET);
+
 app.get("/", (req, res) => {
   res.send("Backend working");
 });
